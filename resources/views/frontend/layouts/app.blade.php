@@ -23,7 +23,9 @@
         @else
             {{ Html::style(mix('css/frontend.css')) }}
         @endif
-
+        {{ Html::style('css/custom.css') }}
+        {{ Html::style('css/style.less') }}
+        {{ Html::style('css/sweetalert.min.css') }}
         @yield('after-styles')
 
         <!-- Scripts -->
@@ -32,23 +34,47 @@
                 'csrfToken' => csrf_token(),
             ]); ?>
         </script>
+        {{ Html::script('js/jquery-3.2.1.min.js') }}
+        {{ Html::script('js/bootstrap.min.js') }}
+        {{ Html::script('js/axios.min.js') }}
+        {{ Html::script('js/sweetalert.min.js') }}
     </head>
     <body id="app-layout">
         <div id="app">
             @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')
 
-            <div class="container">
+            <div class="container" id="body">
+
                 @include('includes.partials.messages')
                 @yield('content')
+                <div class="fullpageload" id="fullpageload" style="display: none;">
+                    <div class="imgload">
+                        <img src="{{asset('img/frontend/loading.gif')}}">
+                    </div>
+                </div>
             </div><!-- container -->
-        </div><!--#app-->
+            <div id="product-data-modal">
 
+            </div>
+
+        </div><!--#app-->
+        <footer>
+            <div class="container">
+
+            </div>
+        </footer>
         <!-- Scripts -->
         @yield('before-scripts')
-        {!! Html::script(mix('js/frontend.js')) !!}
-        @yield('after-scripts')
+        @stack('after-scripts')
+        <script>
+            if($( window ).height()< $( document ).height()){
+                $('#body').height($( document ).height()-$('#frontend-navbar-collapse').height());
+            }else{
+                $('#body').height($( window ).height());
+            }
 
+        </script>
         @include('includes.partials.ga')
     </body>
 </html>

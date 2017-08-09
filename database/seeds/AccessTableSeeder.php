@@ -24,6 +24,11 @@ class AccessTableSeeder extends Seeder
         $this->call(UserRoleSeeder::class);
         $this->call(PermissionTableSeeder::class);
         $this->call(PermissionRoleSeeder::class);
+        $this->call(ProductsTestSeeder::class);
+        $this->call(SizesSeeder::class);
+        $this->call(ProductSisezSeeder::class);
+        $this->call(HonorocSeeder::class);
+        $this->call(ProductHonorocSeeder::class);
 
         $this->enableForeignKeys();
     }

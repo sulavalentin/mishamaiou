@@ -8,7 +8,10 @@ Route::get('/', 'FrontendController@index')->name('index');
 Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
+Route::post('get-item', 'FrontendController@getItem')->name('get.item');
+Route::post('save-command', 'FrontendController@saveCommand')->name('save.command');
 
+Route::get('item-{id}', 'FrontendController@item')->name('item');
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'

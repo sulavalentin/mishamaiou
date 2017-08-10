@@ -8,6 +8,7 @@ use App\Models\Command;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use DB;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class FrontendController.
@@ -32,7 +33,13 @@ class FrontendController extends Controller
         }
     }
     public function saveCommand(SaveCommandRequest $request){
-        Command::query()->insert($request->getCommandData());
+        $id = Command::query()->insertGetId($request->getCommandData());
+        $command = Command::query()->where('id',$id)->first();
+        $emails = ['sula.valentin@gmail.com','mishutqa@icloud.com'];
+        Mail::send('emails.new_command', ['command'=>$command], function($message) use ($emails,$id)
+        {
+            $message->to($emails)->subject('BurlaculTv Comanda noua '.$id);
+        });
         return response()->json('Va multumim pentru commanda');
     }
     public function item($id){

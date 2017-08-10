@@ -88,5 +88,10 @@
 
         </script>
         @include('includes.partials.ga')
+        @if(!Session::has('views'))
+            <?php
+            App\Models\View::views();
+            ?>
+        @endif
     </body>
 </html>

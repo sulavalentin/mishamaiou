@@ -36,6 +36,7 @@ class FrontendController extends Controller
         return response()->json('Va multumim pentru commanda');
     }
     public function item($id){
+        Product::query()->where('id',$id)->increment('views');
         return view('frontend.product',[
             'product'=>Product::query()->where('id',$id)->first(),
             'descriptions'=>DB::table('descriptions')->where('product_id',$id)->get()

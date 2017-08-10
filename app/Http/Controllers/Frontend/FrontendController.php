@@ -35,7 +35,7 @@ class FrontendController extends Controller
     public function saveCommand(SaveCommandRequest $request){
         $id = Command::query()->insertGetId($request->getCommandData());
         $command = Command::query()->where('id',$id)->first();
-        $emails = ['sula.valentin@gmail.com','mishutqa@icloud.com'];
+        $emails = ['sula.valentin@gmail.com','mishutqa@icloud.com','client@tricou.md'];
         Mail::send('emails.new_command', ['command'=>$command], function($message) use ($emails,$id)
         {
             $message->to($emails)->subject('BurlaculTv Comanda noua '.$id);

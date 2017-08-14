@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 body-modal">
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 body-modal">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-modal" >
                 <img src="{{$product->image}}" class="img-responsive">
             </div>
@@ -72,21 +72,50 @@
                 <br> <hr>
                 <button class="btn btn-primary" id="{{$product->id}}" name="final-buy">Cumpara</button>
             </div>
+
+            <div class="row" style="background-color: white; margin-bottom:15px; padding-bottom:15px;">
+                @if(!empty($descriptions) && count($descriptions)>0)
+                    <ul class="horizontal">
+                        @foreach($descriptions as $key => $description)
+                            <li><a class="{{$key == 0 ? 'active':''}}" href="#a{{$key}}" name="nav-salary-guide">{{$description->title}}</a></li>
+                        @endforeach
+                    </ul>
+                    @foreach($descriptions as $key => $description)
+                        <div class="col-lg-12" id="a{{$key}}" name="annual-monthly-information" style="{{$key != 0 ? 'display:none':''}}">
+                            {!! $description->description !!}
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-9">
+            @if(!empty($others) && count($others)>0)
+                @foreach($others as $other)
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="item">
+                            <a href="{{route('frontend.item',$other)}}">
+                                <div class="content-item">
+                                    <div class="image-item">
+                                        <img src="{{$other->image}}" class="img-responsive">
+                                    </div>
+                                    <div class="title-item text-center">
+                                        {{$other->title}}
+                                    </div>
+                                    <div class="price-item text-center">
+                                        {{$other->price}} Lei
+                                    </div>
+                                    <div class="buttons-item">
+                                        <button class="btn btn-primary btn-sm" name="buy" id="{{$other->id}}">Cumpara</button>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
-    @if(!empty($descriptions) && count($descriptions)>0)
-        <ul class="horizontal">
-            @foreach($descriptions as $key => $description)
-                <li><a class="{{$key == 0 ? 'active':''}}" href="#a{{$key}}" name="nav-salary-guide">{{$description->title}}</a></li>
-            @endforeach
-        </ul>
-        @foreach($descriptions as $key => $description)
-            <div class="col-lg-12" id="a{{$key}}" name="annual-monthly-information" style="{{$key != 0 ? 'display:none':''}}">
-                {!! $description->description !!}
-            </div>
-        @endforeach
-
-    @endif
 
 
     <script>

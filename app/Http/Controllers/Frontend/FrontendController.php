@@ -46,7 +46,8 @@ class FrontendController extends Controller
         Product::query()->where('id',$id)->increment('views');
         return view('frontend.product',[
             'product'=>Product::query()->where('id',$id)->first(),
-            'descriptions'=>DB::table('descriptions')->where('product_id',$id)->get()
+            'descriptions'=>DB::table('descriptions')->where('product_id',$id)->get(),
+            'others'=>Product::query()->where('id','!=',$id)->take(3)->get()
         ]);
     }
 }

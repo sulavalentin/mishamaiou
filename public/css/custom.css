@@ -52,9 +52,11 @@
     margin:0 auto;
 }
 .body-modal{
-    width: 100%;
-    float:left;
     margin-bottom: 30px;
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 1px solid #ccc;
 }
 .price-modal{
     color:red;
@@ -224,12 +226,6 @@ footer{
 .margin-numbers{
     margin-top:10px;
 }
-.body-modal{
-    background-color: white;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border: 1px solid #ccc;
-}
 .footercontact{
     list-style-type:none;
     margin:0;
@@ -277,4 +273,12 @@ li.address_f {background: url('../img/frontend/home.png')  left no-repeat; line-
         transform: translate(0) rotate(0) scale(1);
         opacity: 1;
     }
+}
+#app-layout{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7f7f7+0,ffffff+50,f7f7f7+100 */
+    background: #f7f7f7; /* Old browsers */
+    background: -moz-linear-gradient(top, #f7f7f7 0%, #ffffff 50%, #f7f7f7 70%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #f7f7f7 0%,#ffffff 50%,#f7f7f7 70%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #f7f7f7 0%,#ffffff 50%,#f7f7f7 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-9 */
 }

@@ -62,31 +62,29 @@
         <footer id="footer">
             <div class="container">
                 <?php $facebook = "burlacutv"; ?>
-                <div class="col-md-6">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <iframe  src='//www.facebook.com/plugins/likebox.php?href={{$facebook}}&width=336&height=400&colorscheme=light&show_faces=true&header=false&stream=true&show_border=false&appId=578969238871389'scrolling='no' frameborder='0' style='border:none; overflow:hidden; width:334px; height:400px;' allowTransparency='true'></iframe>
                 </div>
-                    <div class="col-lg-6 col-md-6">
-                        <ul class="footercontact">
-                            <li class="phone_f">(022) 99-09-82,  078 070 222,  068 441 447</li>
-                            <li class="clock_f">Ln-Vn: 09:00-18:00, Simbata: 09:00-14:00</li>
-                            <li class="address_f">str.Gh. Asachi 58</li>
-                            <li class="email_f"><a href="mailto:client@tricou.md">client@tricou.md</a></li>
-                            <li class="skype_f"><a href="skype://tricouri_haioase">tricouri_haioase</a></li>
-                        </ul>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <ul class="footercontact">
+                        <li class="phone_f">(022) 99-09-82,  078 070 222,  068 441 447</li>
+                        <li class="clock_f">Ln-Vn: 09:00-18:00, Simbata: 09:00-14:00</li>
+                        <li class="address_f">str.Gh. Asachi 58</li>
+                        <li class="email_f"><a href="mailto:client@tricou.md">client@tricou.md</a></li>
+                        <li class="skype_f"><a href="skype://tricouri_haioase">tricouri_haioase</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="col-xs-12 text-center">
+                        <h4 style="margin-bottom: 0px; margin-top:30px;padding-left:5px;">PARTENER</h4>
+                        <img src="{{asset('img/frontend/logo_tricou_md.png')}}" class="img-responsive">
                     </div>
+                </div>
             </div>
         </footer>
         <!-- Scripts -->
         @yield('before-scripts')
         @stack('after-scripts')
-        <script>
-            if($( window ).height()< $( document ).height()){
-                $('#body').height($( document ).height()-$('#frontend-navbar-collapse').height()-$('#footer').height());
-            }else{
-                $('#body').height($( window ).height());
-            }
-
-        </script>
         @include('includes.partials.ga')
         @if(!Session::has('views'))
             <?php
